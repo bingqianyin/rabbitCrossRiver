@@ -1,2 +1,6 @@
 # rabbitCrossRiver
-game: rabbit cross river
+
+Rabbit cross river game written by javascritp
+
+
+
