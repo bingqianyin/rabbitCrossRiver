@@ -1,6 +1,6 @@
 # rabbitCrossRiver
 
-Rabbit cross river game written by javascritp
+Rabbit cross river game written by javascript
 
 
 
