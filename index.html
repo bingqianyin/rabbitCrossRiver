@@ -7,26 +7,37 @@
 </head>
 <body>
 
-<h1>Rabbit crosses the river</h1>
+<h1>Oh my carrot !</h1>
+
+<img id="grassUp_img" width="1200" height="250"
+     src="img/grassUp.jpg" style="display: none">
+
+<img id="carrot_img" width="150" height="115"
+     src="img/carrot.png" style="display: none">
+
+<img id="river_img" width="1200" height="500"
+     src="img/river.jpg" style="display: none">
+
+<img id="grass_img" width="1200" height="235"
+     src="img/grass.jpg" style="display: none">
 
 <img id="rabbit_img" width="150" height="150"
      src="img/rabbit.png" style="display: none">
 
-<img id="carrot_img" width="200" height="150"
-     src="img/carrot.png" style="display: none">
 
+<div style="height: 180px">
+    <canvas id="grassUp" width="1200" height="250"></canvas>
+</div>
 
-<div>
-<canvas id="carrot" width="200" height="150"></canvas>
+<div style="height: 350px">
+    <canvas id="river" height="450" width="1200"></canvas>
 </div>
 
 <div>
-<canvas id="river" height="500" width="1200"></canvas>
+    <canvas id="grass" height="235" width="1200"></canvas>
 </div>
 
-<div>
-<canvas id="rabbit" width="150" height="150"></canvas>
-</div>
+
 
 <script src="js/rcr.js" type="application/javascript" ></script>
 </body>

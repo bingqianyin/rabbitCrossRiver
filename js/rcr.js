@@ -1,30 +1,34 @@
 
-function drawCarrot() {
-    var carrot = document.getElementById("carrot");
-    var ctx = carrot.getContext("2d");
-    var img = document.getElementById("carrot_img");
-    ctx.drawImage(img,0,0);
+function drawGrassUp() {
+    var grassUp = document.getElementById("grassUp");
+    var ctx = grassUp.getContext("2d");
+    const imgGrassUp = document.getElementById("grassUp_img");
+    ctx.drawImage(imgGrassUp,0,0);
+    var imgCarrot = document.getElementById("carrot_img");
+    ctx.drawImage(imgCarrot,0,0);
 }
 
 function drawRiver() {
     var river = document.getElementById("river");
     var ctx = river.getContext("2d");
-    ctx.fillStyle = "#AFEEEE";
-    ctx.fillRect(0,0,1200,500);
+    var img = document.getElementById("river_img");
+    ctx.drawImage(img,0,0);
 
 }
 
-function drawRabbit() {
-        var rabbit = document.getElementById("rabbit");
-        var ctx = rabbit.getContext("2d");
-        var img = document.getElementById("rabbit_img");
-        ctx.drawImage(img,0,0);
+function drawGrass() {
+        var grass = document.getElementById("grass");
+        var ctx = grass.getContext("2d");
+        const imgGrass = document.getElementById("grass_img");
+        ctx.drawImage(imgGrass,0,0);
+        const imgRabbit = document.getElementById("rabbit_img");
+        ctx.drawImage(imgRabbit,0,0);
 }
 
 
 window.onload = function() {
-    drawCarrot();
+    drawGrassUp();
     drawRiver();
-    drawRabbit();
+    drawGrass();
 };
 
