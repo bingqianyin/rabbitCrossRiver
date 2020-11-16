@@ -38,8 +38,15 @@ function drawGrass() {
     var ctx = grass.getContext("2d");
     const imgGrass = document.getElementById("grass_img");
     ctx.drawImage(imgGrass,0,0);
+
+}
+function drawRabbit(){
+
+    var rabbit = document.getElementById("rabbit");
+    var ctx = rabbit.getContext("2d");
     const imgRabbit = document.getElementById("rabbit_img");
     ctx.drawImage(imgRabbit,0,0);
+    renderRabbitDiv();
 }
 
 
@@ -47,5 +54,39 @@ window.onload = function() {
     drawGrassUp();
     drawRiver();
     drawGrass();
+    drawRabbit();
+    addKeyListener();
 };
 
+function renderRabbitDiv() {
+    var rabbitDiv = document.getElementById("rabbit_div");
+    rabbitDiv.style.position="absolute";
+    rabbitDiv.style.top=rabbitY+"px";
+    rabbitDiv.style.left=rabbitX+"px";
+}
+
+let rabbitX=0;
+let rabbitY=620;
+function addKeyListener(){ // for up, down, right, left key pressing
+
+    document.addEventListener('keydown', (e) => {
+
+        if (e.code === "ArrowLeft") {
+            if(rabbitX -50 >= 0){
+                rabbitX -=50;
+            }
+        }
+        else if (e.code === "ArrowRight") {
+            rabbitX +=50;
+        }else if (e.code === "ArrowUp") {
+            if(rabbitY -50 >= 0){
+                rabbitY -=50;
+            }
+        }else if (e.code === "ArrowDown") {
+            rabbitY +=50;
+        }
+        renderRabbitDiv();
+
+
+    });
+}
