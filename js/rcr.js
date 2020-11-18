@@ -7,30 +7,64 @@ function drawGrassUp() {
     var imgCarrot = document.getElementById("carrot_img");
     ctx.drawImage(imgCarrot,0,0);
 }
+var boatPosition = 0;
 
 function drawRiver() {
     var river = document.getElementById("river");
     var ctx = river.getContext("2d");
-    var img = document.getElementById("river_img");
-    ctx.drawImage(img,0,0);
+    var imgRiver = document.getElementById("river_img");
+    ctx.drawImage(imgRiver,0,0);
+    var imgBoat = document.getElementById("boat_img");
 
-    drawBoard(ctx, 50, 33);
-    drawBoard(ctx, 550, 33);
-    drawBoard(ctx, 950, 33);
-    drawBoard(ctx, 0, 200);
-    drawBoard(ctx, 450, 200);
-    drawBoard(ctx, 1150, 200);
-    drawBoard(ctx, 50, 366);
-    drawBoard(ctx, 480, 366);
-    drawBoard(ctx, 800, 366);
+
+    drawImageBoat1();
+    drawImageBoat2();
+    drawImageBoat3();
+
+
+    function drawImageBoat1() {
+
+        var x = 0;
+        while (x < 1000) {
+            ctx.drawImage(imgBoat, x+boatPosition, 35);
+            x += 450;
+        }
+
+    }
+
+    function drawImageBoat2() {
+
+        var x = 100;
+        while (x < 1100) {
+            ctx.drawImage(imgBoat, x, 170);
+            x += 450;
+        }
+
+    }
+
+    function drawImageBoat3() {
+
+        var x = 50;
+        while (x < 1000) {
+            ctx.drawImage(imgBoat, x, 300);
+            x += 450;
+        }
+
+    }
 
 }
 
-function drawBoard(ctx,x,y) {
-    const boardWidth = 200;
-    const boardHeight = 100;
-    ctx.fillStyle = "#54311d";
-    ctx.fillRect(x,y,boardWidth,boardHeight);
+
+
+function updateBoatPosition() {
+    if (boatPosition > 1200) {
+        boatPosition = 0;
+    }
+    else {
+        boatPosition += 2;
+
+    }
+    drawRiver();
 }
 
 function drawGrass() {
@@ -38,14 +72,57 @@ function drawGrass() {
     var ctx = grass.getContext("2d");
     const imgGrass = document.getElementById("grass_img");
     ctx.drawImage(imgGrass,0,0);
-    const imgRabbit = document.getElementById("rabbit_img");
-    ctx.drawImage(imgRabbit,0,0);
 }
 
+function drawRabbit(){
+    var rabbit = document.getElementById("rabbit");
+    var ctx = rabbit.getContext("2d");
+    const imgRabbit = document.getElementById("rabbit_img");
+    ctx.drawImage(imgRabbit,0,0);
+    renderRabbitDiv();
+}
 
 window.onload = function() {
     drawGrassUp();
     drawRiver();
     drawGrass();
+    setInterval(updateBoatPosition, 1);
+    drawRabbit();
+    addKeyListener();
+
 };
+
+function renderRabbitDiv() {
+    var rabbitDiv = document.getElementById("rabbit_div");
+    rabbitDiv.style.position="absolute";
+    rabbitDiv.style.top=rabbitY+"px";
+    rabbitDiv.style.left=rabbitX+"px";
+}
+
+let rabbitX=0;
+let rabbitY=620;
+
+function addKeyListener(){ // for up, down, right, left key pressing
+
+    document.addEventListener('keydown', (e) => {
+
+        if (e.code === "ArrowLeft") {
+            if(rabbitX -50 >= 0){
+                rabbitX -=50;
+            }
+        }
+        else if (e.code === "ArrowRight") {
+            rabbitX +=50;
+        }else if (e.code === "ArrowUp") {
+            if(rabbitY -140 >= 0){
+                rabbitY -=140;
+            }
+        }else if (e.code === "ArrowDown") {
+            rabbitY +=140;
+        }
+        renderRabbitDiv();
+
+
+    });
+}
 
