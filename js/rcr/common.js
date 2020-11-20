@@ -12,9 +12,9 @@ const utils = {
     },
 
     renderDivWithAbsolutePosition: function (elementId, x, y) {
-        const rabbitDiv = document.getElementById(elementId);
-        rabbitDiv.style.position="absolute";
-        rabbitDiv.style.left=x+"px";
-        rabbitDiv.style.top=y+"px";
+        const div = document.getElementById(elementId);
+        div.style.position="absolute";
+        div.style.left=x+"px";
+        div.style.top=y+"px";
     }
 };
