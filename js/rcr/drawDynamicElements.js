@@ -1,15 +1,16 @@
+function drawBoats(){
 
-let rabbitX=0;
-let rabbitY=620;
-
-function renderRabbitDiv() {
-    utils.renderDivWithAbsolutePosition('rabbit_div', rabbitX, rabbitY);
+    for(let i=0; i<9; i++){
+        let direction = "RIGHT";
+        if( i >= 3 && i<=5){
+            direction = "LEFT";
+        }
+        const boat = new Boat((i%3)* 450, 300 + Math.floor((i / 3)) * 100, direction, i+1);
+        boat.start();
+    }
 }
 
-
-function drawRabbit(){
-    const ctx = utils.getContext('rabbit');
-    utils.drawImage(ctx, 'rabbit_img', 0, 0);
-    renderRabbitDiv();
+function drawRabbit (){
+    const rabbit= new Rabbit (0, 620);
+    rabbit.start();
 }
-

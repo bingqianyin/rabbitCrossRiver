@@ -1,0 +1,13 @@
+body{
+    margin: 0px;
+}
+
+
+.white_cover{
+    width: 150px;
+    height: 1000px;
+    position: absolute;
+    left: 1200px;
+    top: 0px;
+    background-color: white;
+}
